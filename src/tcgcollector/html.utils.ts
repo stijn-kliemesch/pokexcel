@@ -71,10 +71,13 @@ export function getNodeByIdOrFalse(nodes: Array<INode>, search: string) {
     }
 }
 
-export function getNodesMappedToClass(nodes: Array<INode>, deep?: boolean) {
+export function getNodesMappedToClass(nodes: Array<INode>) : Record<string, Array<INode>>;
+export function getNodesMappedToClass(nodes: Array<INode>, deep: boolean) : Record<string, Array<INode>>;
+export function getNodesMappedToClass(nodes: Array<INode>, deep?: any) {
     try {
         if (!nodes) throw "NODES WAS FALSY";
         if (!Array.isArray(nodes)) throw "NODES NOT AN ARRAY";
+        if(typeof deep !== "boolean") deep = undefined;
         const classRegistry = {} as Record<string, Array<INode>>;
         walk2(nodes, isTagNode, (node) => {
             getElementClasses(node).forEach((clazz) => (classRegistry[clazz] ??= []).push(node));

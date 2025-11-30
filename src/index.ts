@@ -23,8 +23,44 @@ async function run() {
 
     const pokemonSheet = getSheet(context, SheetPokemon);
     const scriptSheet = getSheet(context, SheetScript);
+    
+    console.log(await getTableCell(TableSourceData, "Reverse", "Set", "SV1", context));
+    console.log(await getTableCell(TableSourceData, "Progress", "Set", "JTG", context));
 
-    const grids = retrieveSets();
+    console.log(await loadPokexcelSetKeys(context));
+
+    // let html = [await getHtmlFromUrl("https://www.tcgcollector.com/sets/intl")];
+    // const setLogoGridsNode = getNodeByIdOrFalse(html[0], "set-logo-grids") || err("set-logo-grids NOT FOUND");
+    // const grids = {} as Record<string, Array<INode>>;
+    // getNodesMappedToClass(getNodeBody(setLogoGridsNode))
+    // ["set-logo-grid"].map((grid) => getNodesMappedToClass(getNodeBody(grid)))
+    //   .map(
+    //     (gridElementsByClass) =>
+    //     (grids[getNodeText(gridElementsByClass["set-logo-grid-title"][0]).trim()] = getNodesOfClass(
+    //       gridElementsByClass["set-logo-grid-items"][0],
+    //       "set-logo-grid-item",
+    //     )),
+    //   );
+    // // for(const name of Object.keys(idRegistry)) delete idRegistry[name];
+    // delete html[0];
+    // console.log("... done! Grids stored: " + Object.keys(grids).length);
+
+    // await context.sync();
+
+    // const step2Button = rootElement.appendChild(createButton("step2", "step2"));
+
+    // await context.sync();
+
+    // step2Button.addEventListener("click", async () => {
+    //   tryCatch(async () => {
+    //     console.log("SourceData");
+    //     console.log(await getTableContents("SourceData", "Set", context));
+    //     console.log("PersonalCollection");
+    //     console.log(await getTableContents("PersonalCollection", "Set", context));
+    //     console.log("PersonalProgress");
+    //     console.log(await getTableContents("PersonalProgress", "Set", context));
+      // })
+    // });
 
     await context.sync();
   });

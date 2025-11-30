@@ -1,0 +1,42 @@
+
+// function transformToRecord(expansionSet: ExpansionSet, expansion: ExpansionTable_Record) {
+//   try {
+//     if (!expansionSet) throw "EXPANSIONSET WAS FALSY";
+
+//     const optionals = {} as {
+//       Code?: string;
+//       Symbol?: { url: string }[];
+//     }; //TODO: can pull type of createRecordAsync param
+//     if (expansionSet.setCode) optionals["Code"] = expansionSet.setCode;
+//     if (expansionSet.setSymbol) optionals["Symbol"] = [{ url: expansionSet.setSymbol }];
+//     return {
+//       ...optionals,
+//       Expansion_id: expansion.id,
+//       Name: expansionSet.setName,
+//       ReleaseDate: expansionSet.setReleaseDate,
+//       Logo: [{ url: expansionSet.setLogo }],
+//       EnergySet: expansion.getCellValue("Title").includes("Energies") || expansionSet.setName.includes("Energies"),
+//       PromoSet: expansionSet.setName.includes("Promos"),
+//       ProgressTrackNumber: Number.parseInt(expansionSet.setProgressTrackNumber.split("/")[1]),
+//       SetLink: expansionSet.setLink,
+//     };
+//   } catch (e) {
+//     console.log(e as any, "error");
+//     throw "ERROR IN transformToRecord";
+//   }
+// }
+//
+// export function createLoggedFunction<T extends (...args : any) => any | Promise<any>>(
+//     name: string,
+//     func: T
+// ) : T {
+//     return (async (...args) => {
+//         try {
+//             return await func(...args);
+//         } catch (e) {
+//             console.log(e as any, "error");
+//             throw "ERROR IN "+name;
+//         }
+//     }) as T
+// }
+//
